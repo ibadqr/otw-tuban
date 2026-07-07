@@ -6,10 +6,10 @@
     
     <!-- === SEO & METADATA OPTIMIZATION === -->
     <title>Pesona Bumi Wali - OTW TUBAN | Destinasi Wisata & Kuliner Khas</title>
-    <meta name="description" content="Eksplorasi resmi wisata alam tersembunyi, religi Sunan Bonang, sejarah, hingga kuliner ekstrem rajungan khas Kabupaten Tuban secara real-time dan mobile-first.">
-    <meta name="keywords" content="wisata tuban, kuliner tuban, otw tuban, bumi wali, rajungan tuban, pantai tuban, goa tuban">
+    <meta name="description" content="Eksplorasi wisata alam tersembunyi, religi Sunan Bonang, sejarah, hingga kuliner ekstrem rajungan khas Kabupaten Tuban secara real-time dan mobile-first.">
+    <meta name="keywords" content="wisata tuban, kuliner tuban, otw tuban, bumi wali, rajungan tuban, pantai tuban, goa tuban, air terjun tuban">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="OTW TUBAN Digital">
+    <meta name="author" content="OTW TUBAN">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -42,18 +42,16 @@
         /* Mengatasi pergeseran layout saat modal aktif */
         .modal-open { overflow: hidden; padding-right: var(--scrollbar-width, 0px); }
 
-        /* Animasi pergeseran posisi gradient */
-        @keyframes gradientBergerak {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .hero-alam-tuban {
+            /* Menggunakan foto lanskap alam resolusi tinggi yang dioptimalkan */
+            background-image: url('img/tubanalam.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll; /* Ramah performa browser mobile */
         }
 
-        .animasi-ocean-night {
-            /* Perpaduan mewah: Slate gelap, Navy dalam, Indigo mistis, dan Cyan samudera */
-            background: linear-gradient(-45deg, #3e5eee, #085252, #1e1b4b, #083344);
-            background-size: 400% 400%;
-            animation: gradientBergerak 12s ease infinite;
+        .animasi-cahaya {
+            animation: denyutCahaya 8s ease-in-out infinite;
         }
     </style>
 </head>
@@ -77,36 +75,51 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION (SEO Friendly H1) -->
-    <header class="animasi-ocean-night relative border-b border-slate-900 py-20 sm:py-32 px-4 overflow-hidden w-full box-border">
-    
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none"></div>
+    <!-- HERO SECTION: LANSKAP ALAM TUBAN WITH DEEP BLUE GRADIENT OVERLAY -->
+    <header class="hero-alam-tuban relative border-b border-slate-900 py-24 sm:py-36 px-4 overflow-hidden w-full box-border flex items-center justify-center">
+        
+        <!-- LAPISAN 1: Gradasi Biru Gelap Transparan (Mengunci Kontras Teks Putih) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/75 to-[#0b1222] z-0"></div>
 
-    <div class="relative max-w-3xl mx-auto text-center space-y-5 sm:space-y-6 z-10">
-        
-        <span class="inline-flex items-center gap-2 bg-sky-500/10 text-sky-400 text-[10px] sm:text-xs font-bold px-3.5 py-1.5 rounded-full border border-sky-500/20 shadow-sm whitespace-nowrap">
-            <i class="fa-solid fa-fire text-amber-400 animate-pulse"></i> Eksplorasi Digital Bumi Wali Tuban
-        </span>
-        
-        <h1 class="text-2xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight px-2">
-            Portal Informasi <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-amber-400">Destinasi Wisata & Kuliner Khas Kabupaten Tuban</span>
-        </h1>
-        
-        <p class="text-[11px] sm:text-sm text-slate-300 max-w-lg sm:max-w-xl mx-auto font-medium leading-relaxed px-4">
-            Temukan surga wisata alam tersembunyi, rute religi sejarah, hingga kelezatan kuliner lokal secara akurat, responsif, dan interaktif.
-        </p>
+        <!-- LAPISAN 2: Animasi Denyut Cahaya Cyan/Indigo Misterius di Atas Foto -->
+        <div class="animasi-cahaya absolute inset-0 bg-gradient-to-tr from-sky-500/10 via-transparent to-indigo-500/10 z-0"></div>
 
-        <div class="pt-2 flex flex-wrap justify-center gap-3 px-4">
-            <a href="#jelajah" class="bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white font-bold text-xs px-5 py-3 rounded-xl transition transform hover:-translate-y-0.5 shadow-lg shadow-sky-950/50 w-full sm:w-auto text-center">
-                <i class="fa-solid fa-compass mr-1.5"></i> Mulai Penjelajahan
-            </a>
+        <!-- LAPISAN 3: Overlay Grid Premium untuk Kesan Estetik & Modern -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-15 z-0 pointer-events-none"></div>
+
+        <!-- KONTEN UTAMA (Kunci Pas di Tengah, Mengambang di Atas Semua Overlay) -->
+        <div class="relative max-w-3xl mx-auto text-center space-y-5 sm:space-y-6 z-10">
+            
+            <!-- Badge Semat Atas -->
+            <span class="inline-flex items-center gap-2 bg-slate-950/80 text-sky-400 text-[10px] sm:text-xs font-bold px-3.5 py-1.5 rounded-full border border-sky-500/20 shadow-md backdrop-blur-sm whitespace-nowrap">
+                <i class="fa-solid fa-mountain-sun text-amber-400 animate-pulse"></i> Eksplorasi Digital Bumi Wali Tuban
+            </span>
+            
+            <!-- Judul Utama Ragam Kontras -->
+            <h1 class="text-2xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight px-2 drop-shadow-[0_4px_12px_rgba(2,6,17,0.7)]">
+                Informasi Destinasi Wisata & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-300 to-amber-300">Hub Kuliner Khas Kabupaten Tuban</span>
+            </h1>
+            
+            <!-- Narasi Singkat -->
+            <p class="text-[11px] sm:text-sm text-slate-200 max-w-lg sm:max-w-xl mx-auto font-medium leading-relaxed px-4 drop-shadow-[0_2px_4px_rgba(2,6,17,0.8)]">
+                Jelajahi keindahan pesisir pantai utara, keajaiban arsitektur goa kapur alami, hingga kelezatan kuliner lokal legendaris secara real-time dan interaktif.
+            </p>
+
+            <!-- Aksi Tombol Navigasi -->
+            <div class="pt-2 flex flex-wrap justify-center gap-3 px-4">
+                <a href="#wisata" class="bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white font-bold text-xs px-5 py-3 rounded-xl transition transform hover:-translate-y-0.5 shadow-lg shadow-slate-950/80 w-full sm:w-auto text-center cursor-pointer">
+                    <i class="fa-solid fa-compass mr-1.5"></i> Mulai Penjelajahan
+                </a>
+                <a href="#kuliner" class="bg-slate-950/90 hover:bg-slate-950 text-slate-200 hover:text-white font-bold text-xs px-5 py-3 rounded-xl border border-slate-800 hover:border-slate-700 transition backdrop-blur-sm w-full sm:w-auto text-center cursor-pointer">
+                    Cari Kuliner Lokal <i class="fa-solid fa-utensils text-amber-400 ml-1"></i>
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div id="jelajah" class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0b1222] to-transparent pointer-events-none"></div>
+        <!-- Efek Transisi Memudar Halus (Fade Out) Menuju Latar Belakang Website -->
+        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0b1222] via-[#0b1222]/40 to-transparent pointer-events-none"></div>
     </header>
-
     <!-- SEARCH & FILTER TABS CONTROL BAR -->
     <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-10 pb-4" aria-label="Kontrol Penyaringan">
         <div class="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 backdrop-blur-md shadow-xl">
