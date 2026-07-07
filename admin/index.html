@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Portal Ekosistem - OTW TUBAN</title>
+    <title>Login Portal CMS - OTW TUBAN</title>
     
     <!-- === SECURITY GUARD LAYER === -->
     <meta name="robots" content="noindex, nofollow">
 
     <!-- === ICON & FAVICON CONFIGURATION === -->
-    <link rel="icon" type="image/png" sizes="32x32" href="https://img.icons8.com/fluency/32/compass.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/ikon.png">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -38,8 +38,12 @@
     <!-- Header Atas -->
     <header class="p-4 max-w-7xl mx-auto w-full flex items-center justify-between relative z-10 shrink-0">
         <div class="flex items-center gap-2">
-            <i class="fa-solid fa-compass text-xl text-transparent bg-clip-text bg-gradient-to-tr from-sky-400 to-indigo-500"></i>
-            <span class="text-xs font-black text-white tracking-wider">OTW <span class="text-amber-500">TUBAN</span></span>
+            <div class="flex items-center gap-2.5">
+                <img src="img/ikon.png" 
+                 alt="Logo Resmi OTW TUBAN" 
+                 class="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_2px_8px_rgba(56,189,248,0.2)]"
+                 loading="eager">
+            <span class="text-lg font-black text-blue tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-yellow-500">OTW TUBAN</span>
         </div>
         <a href="../index.html" class="text-[10px] sm:text-xs font-bold text-slate-400 hover:text-white transition duration-200 flex items-center gap-1.5">
             <i class="fa-solid fa-arrow-left-long"></i> Beranda
@@ -56,7 +60,7 @@
                     <i class="fa-solid fa-lock text-xs"></i>
                 </div>
                 <h1 class="text-base sm:text-lg font-black text-white tracking-tight pt-1">Autentikasi Internal</h1>
-                <p class="text-[10px] sm:text-xs text-slate-400 font-medium max-w-[260px] mx-auto leading-relaxed">Khusus kontributor data Bumi Wali Tuban.</p>
+                <p class="text-[10px] sm:text-xs text-slate-400 font-medium max-w-[260px] mx-auto leading-relaxed">Khusus administrator/kontributor Portal Otw Tuban.</p>
             </div>
 
             <!-- Interaksi Form -->
@@ -64,7 +68,7 @@
                 
                 <!-- Input Bidang Email -->
                 <div class="space-y-1">
-                    <label for="emailInput" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block">Email Kontributor</label>
+                    <label for="emailInput" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block">Email</label>
                     <div class="relative w-full">
                         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-500 text-xs pointer-events-none">
                             <i class="fa-solid fa-envelope"></i>
@@ -91,7 +95,7 @@
                 <!-- Aksi Pengajuan Login -->
                 <div class="pt-1">
                     <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white font-black text-xs py-3 rounded-xl transition duration-150 flex items-center justify-center gap-2 shadow-lg cursor-pointer box-border">
-                        <i class="fa-solid fa-right-to-bracket"></i> Masuk Jaringan Cloud
+                        <i class="fa-solid fa-right-to-bracket"></i> Masuk Portal
                     </button>
                 </div>
             </form>
