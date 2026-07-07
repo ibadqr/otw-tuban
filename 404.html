@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Tidak Ditemukan (404) — OTW TUBAN</title>
+    
+    <!-- === SECURITY LAYER === -->
+    <meta name="robots" content="noindex, follow">
+
+    <!-- === ICON CONFIGURATION === -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://img.icons8.com/fluency/32/compass.png">
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- === STYLES & ENGINE === -->
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Animasi rotasi radar kompas pelacak jalan */
+        @keyframes putarRadar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Efek gelombang denyut sinyal */
+        @keyframes denyutSinyal {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.08); opacity: 0.4; }
+        }
+
+        .animasi-radar {
+            animation: putarRadar 20s linear infinite;
+        }
+        .animasi-denyut {
+            animation: denyutSinyal 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#0b1222] text-slate-100 min-h-screen flex flex-col justify-between items-center antialiased relative overflow-hidden w-full max-w-full selection:bg-sky-500 selection:text-slate-950">
+
+    <!-- Efek Ambient Ringkasan Latar Belakang (Deep Blue Aurora) -->
+    <div class="absolute inset-0 max-w-full overflow-hidden pointer-events-none opacity-20 z-0">
+        <div class="absolute top-[25%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[600px] h-[280px] sm:h-[600px] bg-gradient-to-tr from-sky-500 to-indigo-600 rounded-full blur-[100px] sm:blur-[160px]"></div>
+    </div>
+
+    <!-- HEADER LOGO ATAS -->
+    <header class="p-5 w-full flex justify-center items-center relative z-10 shrink-0">
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-compass text-2xl text-transparent bg-clip-text bg-gradient-to-tr from-sky-400 to-indigo-500"></i>
+            <span class="text-xs font-black text-white tracking-wider">OTW <span class="text-amber-500">TUBAN</span></span>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA SENTRAL -->
+    <main class="w-full max-w-md mx-auto px-6 py-4 relative z-10 flex-grow flex flex-col justify-center items-center text-center box-border space-y-6 sm:space-y-8">
+        
+        <!-- VISUAL ELEMEN: ANGKA DI DEPAN, GAMBAR KOMPAS DI BELAKANG (404) -->
+        <div class="relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center select-none">
+            
+            <!-- 1. Gelombang Denyut Sinyal (Lapisan Paling Belakang) -->
+            <div class="animasi-denyut absolute inset-0 rounded-full bg-sky-500/5 border border-sky-500/20 z-0"></div>
+            
+            <!-- 2. GAMBAR KOMPAS (Di Belakang, Agak Transparan & Berputar) -->
+            <img src="https://img.icons8.com/fluency/240/compass.png" 
+                 alt="Kompas Tersesat Otw Tuban" 
+                 class="animasi-radar w-28 h-28 sm:w-36 sm:h-36 object-contain opacity-40 blur-[0.5px] relative z-10"
+                 loading="eager">
+            
+            <!-- 3. ANGKA 404 HOLOGRAM (Di Depan Kompas, Bold, Semi-Transparan) -->
+            <h1 class="absolute text-7xl sm:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/90 via-white/50 to-white/10 drop-shadow-[0_4px_12px_rgba(15,23,42,0.8)] z-20 pointer-events-none select-none select-none">
+                404
+            </h1>
+        </div>
+
+        <!-- NARASI INFORMASI -->
+        <div class="space-y-2.5 max-w-xs sm:max-w-sm">
+            <h2 class="text-base sm:text-lg font-black text-white uppercase tracking-wider">Navigasi Terputus</h2>
+            <p class="text-[11px] sm:text-xs text-slate-400 font-medium leading-relaxed">
+                Koordinat jalan atau tautan halaman yang Anda tuju salah arah, telah dihapus, atau tidak pernah ada di dalam pangkalan data platform.
+            </p>
+        </div>
+
+        <!-- TOMBOL STRATEGIS KEMBALI -->
+        <div class="w-full flex flex-col sm:flex-row gap-3 justify-center items-center px-4 box-border">
+            <a href="index.html" class="w-full sm:w-auto bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white font-bold text-xs px-6 py-3 rounded-xl transition shadow-lg shadow-sky-950/50 flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap">
+                <i class="fa-solid fa-house-chimney text-[11px]"></i> Kembali ke Beranda
+            </a>
+            <button onclick="window.history.back()" class="w-full sm:w-auto bg-slate-900/80 hover:bg-slate-900 text-slate-300 hover:text-white font-bold text-xs px-6 py-3 rounded-xl border border-slate-800 hover:border-slate-700 transition flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap">
+                <i class="fa-solid fa-arrow-left text-[11px]"></i> Jalur Sebelumnya
+            </button>
+        </div>
+        
+    </main>
+
+    <!-- FOOTER METER -->
+    <footer class="p-4 text-center text-[9px] text-slate-600 font-semibold relative z-10 shrink-0">
+        <p>Platform Monitor Gateway Status System Code: 404_NOT_FOUND</p>
+    </footer>
+
+</body>
+</html>
