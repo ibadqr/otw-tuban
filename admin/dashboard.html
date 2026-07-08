@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard CMS — OTW TUBAN</title>
+    <title>Dashboard Portal CMS — OTW TUBAN</title>
     
     <meta name="robots" content="noindex, nofollow">
 
@@ -207,7 +207,7 @@
             if (!session) {
                 window.location.href = "index.html";
             } else {
-                document.getElementById('adminUserEmail').innerText = `🔐 Sesi: ${session.user.email}`;
+                document.getElementById('adminUserEmail').innerText = `Akun Aktif:  ${session.user.email}`;
                 pullCloudDataRepository();
             }
         }
