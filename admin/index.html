@@ -180,7 +180,7 @@
         async function checkExistingSession() {
             const { data: { session } } = await supabaseClient.auth.getSession();
             if (session) {
-                window.location.href = "dashboard.html";
+                window.location.href = "admin/dashboard.html";
             }
         }
         checkExistingSession();
