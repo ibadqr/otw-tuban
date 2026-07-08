@@ -38,6 +38,7 @@ otw-tuban/
 │
 ├── index.html            # Halaman Utama Publik (Hero Section & Katalog)
 ├── 404.html              # Halaman Galat Interaktif (Kompas Lost in Space)
+├── vercel.json           # Pengalihan Akses Link Acak Ke Halaman 404 (Routing Pages)
 │
 └── admin/
     ├── index.html        # Portal Autentikasi Kontributor (Login Page)
