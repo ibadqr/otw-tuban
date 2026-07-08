@@ -3,24 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Portal CMS — OTW TUBAN</title>
+    <title>Dashboard CMS — OTW TUBAN</title>
     
-    <!-- === SECURITY GUARD LAYER === -->
     <meta name="robots" content="noindex, nofollow">
 
-    <!-- === ICON & FAVICON CONFIGURATION === -->
-    <link rel="icon" type="image/png" sizes="32x32" href="img/ikon.png">
-    <!-- Font Awesome 6 (Premium Icons) -->
+    <link class="content-favicon" rel="icon" type="image/png" sizes="32x32" href="../img/ikon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <!-- === STYLES & CORE ENGINE === -->
-    <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Supabase JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <!-- SweetAlert2 (Premium Dialog Alerts) -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Google Fonts Plus Jakarta Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -33,7 +25,6 @@
 </head>
 <body class="bg-[#0b1222] text-slate-100 min-h-screen flex flex-col justify-between antialiased selection:bg-sky-500 selection:text-slate-950">
 
-    <!-- TOP CONTROL NAVIGATION (Sticky & Fluid) -->
     <nav class="bg-slate-950/95 border-b border-slate-900 sticky top-0 z-40 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2.5">
@@ -52,10 +43,8 @@
         </div>
     </nav>
 
-    <!-- MAIN PLATFORM HUB -->
     <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow space-y-6 sm:space-y-8">
         
-        <!-- COUNTER STATS ROW GRID (Responsif: 1 Kolom di HP, 3 Kolom di Desktop) -->
         <section class="grid grid-cols-1 sm:grid-cols-3 gap-4" aria-label="Ringkasan Statistik">
             <div class="bg-slate-950/40 border border-slate-800/60 p-4 sm:p-5 rounded-2xl flex items-center gap-4">
                 <div class="h-11 w-11 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-xl flex items-center justify-center text-base shrink-0"><i class="fa-solid fa-earth-asia"></i></div>
@@ -80,10 +69,8 @@
             </div>
         </section>
 
-        <!-- SPLIT PANEL (Mobile: Stacked Vertikal | Desktop: 3 Kolom Grid Berdampingan) -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
             
-            <!-- COLUMN LEFT: INTERACTION INPUT FORM CONTROLLER -->
             <section class="bg-slate-950/40 border border-slate-800/80 p-5 sm:p-6 rounded-2xl sm:rounded-3xl backdrop-blur-xl space-y-4 lg:sticky lg:top-24">
                 <div>
                     <h2 id="formActionTitle" class="text-xs sm:text-sm font-black text-white uppercase tracking-wider flex items-center gap-2">
@@ -100,7 +87,6 @@
                         <input type="text" id="inputTitle" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500/40" placeholder="Contoh: Pantai Boom">
                     </div>
 
-                    <!-- Grid Kategori: 1 kolom di HP agar tidak sempit, 2 kolom di tablet/PC -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div class="space-y-1">
                             <label class="text-[10px] font-bold tracking-widest uppercase text-slate-400">Kategori</label>
@@ -116,8 +102,14 @@
                     </div>
 
                     <div class="space-y-1">
-                        <label class="text-[10px] font-bold tracking-widest uppercase text-slate-400">Nama File Gambar / URL</label>
-                        <input type="text" id="inputImageUrl" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500/40" placeholder="Contoh: boom.jpg atau https://...">
+                        <label class="text-[10px] font-bold tracking-widest uppercase text-slate-400 block">Aset Gambar Destinasi (Maksimal 3)</label>
+                        <input type="file" id="inputImages" accept="image/*" class="hidden">
+                        
+                        <button type="button" id="btnAddImage" onclick="triggerPickFile()" class="w-full text-center bg-slate-900 hover:bg-slate-800 border border-dashed border-slate-700 hover:border-sky-500/50 py-3 rounded-xl text-xs text-slate-400 font-bold transition flex items-center justify-center gap-1.5 cursor-pointer">
+                            <i class="fa-solid fa-images text-sky-400"></i> Pilih & Tambah File Foto
+                        </button>
+                        
+                        <div id="previewContainer" class="grid grid-cols-3 gap-2 pt-2.5"></div>
                     </div>
 
                     <div class="space-y-1">
@@ -146,42 +138,37 @@
                 </form>
             </section>
 
-            <!-- COLUMN RIGHT: REALTIME DATABASE DATA VIEW TABLE (Anti-Breakage pada Mobile) -->
             <section class="lg:col-span-2 bg-slate-950/40 border border-slate-800/80 rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between shadow-2xl min-h-[450px] w-full">
-                <!-- Header Kontrol Tabel -->
                 <div class="p-4 sm:p-6 border-b border-slate-900 bg-slate-950/30 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3.5">
                     <div>
                         <h2 class="text-xs sm:text-sm font-black text-white uppercase tracking-wider"><i class="fa-solid fa-database text-indigo-400"></i> Records Repository</h2>
                         <p class="text-[10px] text-slate-500 mt-0.5">Penarikan data tabel terpusat secara real-time cloud sync.</p>
                     </div>
-                    <!-- Kolom Pencarian Tabel -->
                     <div class="relative w-full sm:max-w-xs">
                         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-600 text-xs"><i class="fa-solid fa-magnifying-glass"></i></span>
                         <input type="text" id="tableSearchInput" oninput="triggerLocalTableSearch()" class="w-full bg-slate-900/60 border border-slate-800 rounded-xl pl-8 pr-3 py-2 text-slate-300 placeholder-slate-600 text-xs focus:outline-none" placeholder="Cari dalam tabel...">
                     </div>
                 </div>
 
-                <!-- AMAN: Pembungkus Khusus X-Overflow Agar Tabel Tidak Menghancurkan Layout HP -->
                 <div class="w-full overflow-x-auto custom-scrollbar">
                     <div class="inline-block min-w-full align-middle">
                         <table class="min-w-full text-left border-collapse table-auto">
-                            <thead>
-                                <tr class="border-b border-slate-900 bg-slate-950/60 text-[10px] font-extrabold uppercase tracking-widest text-slate-400 whitespace-nowrap">
-                                    <th class="py-3.5 px-4 w-12 text-center">ID</th>
-                                    <th class="py-3.5 px-4">Nama Destinasi</th>
-                                    <th class="py-3.5 px-4">Kategori</th>
-                                    <th class="py-3.5 px-4">Sub-Kategori</th>
-                                    <th class="py-3.5 px-4 text-center">Aksi Operasi</th>
+                            <thead class="bg-slate-900 text-slate-400 text-[11px] font-bold uppercase tracking-wider border-b border-slate-800">
+                                <tr>
+                                    <th class="py-3.5 px-4 text-center w-12">No.</th>
+                                    <th class="py-3.5 px-4 text-center w-16">ID</th>
+                                    <th class="py-3.5 px-4 text-left">Nama Destinasi</th>
+                                    <th class="py-3.5 px-4 text-left">Kategori</th>
+                                    <th class="py-3.5 px-4 text-left">Sub Kategori</th>
+                                    <th class="py-3.5 px-4 text-center w-28">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody id="databaseTableBody" class="divide-y divide-slate-900/50 text-xs font-medium text-slate-300 whitespace-nowrap">
-                                <!-- Data Dimuat Di Sini -->
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- TABLE FOOTER SYSTEM (PAGINATION RESPONSIVE) -->
                 <div class="p-4 border-t border-slate-900 bg-slate-950/40 flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-500">
                     <span id="paginationIndicator">Page 1 of 1</span>
                     <div class="flex items-center gap-1.5">
@@ -194,12 +181,10 @@
         </div>
     </main>
 
-    <!-- FOOTER METRIC SYSTEM -->
     <footer class="bg-slate-950 border-t border-slate-900/60 py-4 text-center text-[10px] text-slate-600 font-semibold">
-        <p>Content Management System Version 7.7.26 — Otw Tuban.</p>
+        <p>Content Management System Version 7.7.26 — OTW TUBAN.</p>
     </footer>
 
-    <!-- === CORE APPLICATION CONTROL PLATFORM SCRIPT === -->
     <script>
         const SUPABASE_URL = "https://aeeytzzhfoqacqajrfmy.supabase.co";
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFlZXl0enpoZm9xYWNxYWpyZm15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMzOTQzNTYsImV4cCI6MjA5ODk3MDM1Nn0.Bfk_iBR9KqnYBhaMwUiiLcMXcDIzCIZVQybczZ4eihA";
@@ -210,8 +195,13 @@
         let filteredCacheRows = [];
         let currentPageIndex = 1;
         const totalRowsPerPage = 10;
+        
+        let selectedImagesState = [];
 
-        // ROUTE GUARD PROTECTION CHECK
+        const imgInput = document.getElementById('inputImages');
+        const previewContainer = document.getElementById('previewContainer');
+        const btnAddImage = document.getElementById('btnAddImage');
+
         async function runRouteGuardVerification() {
             const { data: { session } } = await supabaseClient.auth.getSession();
             if (!session) {
@@ -223,7 +213,6 @@
         }
         runRouteGuardVerification();
 
-        // REPOSITORY CORE CRUD FETCH DATA
         async function pullCloudDataRepository() {
             try {
                 const { data: places, error } = await supabaseClient
@@ -250,7 +239,7 @@
             document.getElementById('statKuliner').innerText = coreCacheDatabase.filter(x => x.category === 'kuliner').length;
         }
 
-        // TABLE RENDER ENGINE + PAGINATION SYSTEM
+        // UPGRADED TABLE RENDER ENGINE WITH AUTOMATIC ROW NUMBERING
         function renderStructuredUiTable() {
             const tbody = document.getElementById('databaseTableBody');
             tbody.innerHTML = '';
@@ -266,16 +255,22 @@
             document.getElementById('btnNextPage').disabled = (currentPageIndex === totalPagesCalculated);
 
             if (currentPaginatedRows.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="py-12 text-center text-slate-500 font-semibold"><i class="fa-solid fa-box-open mr-1"></i> Data Kosong</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="6" class="py-12 text-center text-slate-500 font-semibold"><i class="fa-solid fa-box-open mr-1"></i> Data Kosong</td></tr>`;
                 return;
             }
 
-            currentPaginatedRows.forEach(row => {
+            currentPaginatedRows.forEach((row, idx) => {
                 const badgeColor = row.category === 'wisata' ? 'bg-sky-500/10 text-sky-400 border-sky-500/20' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
                 
+                // Rumus kalkulasi nomor urut agar sinkron dengan pergantian halaman pagination
+                const automaticRowNumber = startOffset + idx + 1;
+
                 tbody.innerHTML += `
                     <tr class="hover:bg-slate-900/30 transition">
-                        <td class="py-3 px-4 font-mono text-[11px] text-slate-500 text-center">${row.id}</td>
+                        <!-- Kolom Nomor Urut Otomatis -->
+                        <td class="py-3 px-4 font-mono text-[11px] text-slate-500 text-center border-r border-slate-900/30">${automaticRowNumber}</td>
+                        <!-- Kolom ID Unik Asli Database -->
+                        <td class="py-3 px-4 font-mono text-[11px] text-slate-400 text-center">#${row.id}</td>
                         <td class="py-3 px-4 font-bold text-white tracking-tight whitespace-normal min-w-[150px] max-w-[220px] truncate">${row.title || '-'}</td>
                         <td class="py-3 px-4">
                             <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded border ${badgeColor}">${row.category}</span>
@@ -312,26 +307,107 @@
             renderStructuredUiTable();
         }
 
-        // ACTION CONTROLLER LOGIC (CREATE, UPDATE, DELETE)
+        function triggerPickFile() {
+            if (selectedImagesState.length >= 3) {
+                Swal.fire({ icon: 'warning', title: 'Slot Penuh', text: 'Maksimal hanya boleh 3 gambar.', background: '#0f172a', color: '#f8fafc', confirmButtonColor: '#0ea5e9' });
+                return;
+            }
+            imgInput.click();
+        }
+
+        imgInput.addEventListener('change', function() {
+            if (!this.files || this.files.length === 0) return;
+            const file = this.files[0];
+
+            selectedImagesState.push({ type: 'file', data: file });
+            this.value = ''; 
+            renderStatePreviews();
+        });
+
+        function removeImageFromState(index) {
+            selectedImagesState.splice(index, 1);
+            renderStatePreviews();
+        }
+
+        function renderStatePreviews() {
+            previewContainer.innerHTML = '';
+            
+            selectedImagesState.forEach((item, idx) => {
+                const wrap = document.createElement('div');
+                wrap.className = 'relative rounded-xl overflow-hidden aspect-video border border-slate-800 bg-slate-900 group';
+                
+                const imgSrc = item.type === 'file' ? URL.createObjectURL(item.data) : item.data;
+
+                wrap.innerHTML = `
+                    <img src="${imgSrc}" class="w-full h-full object-cover ${item.type === 'url' ? 'opacity-75' : ''}">
+                    <button type="button" onclick="removeImageFromState(${idx})" class="absolute top-1 right-1 h-5 w-5 bg-rose-600 hover:bg-rose-700 text-white rounded-md text-[10px] flex items-center justify-center transition shadow cursor-pointer">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <span class="absolute bottom-1 left-1 px-1 py-0.5 bg-slate-950/80 rounded text-[8px] font-bold tracking-tight text-slate-400">
+                        ${item.type === 'file' ? 'Baru' : 'Cloud'}
+                    </span>
+                `;
+                previewContainer.appendChild(wrap);
+            });
+
+            if (selectedImagesState.length >= 3) {
+                btnAddImage.classList.add('opacity-40', 'pointer-events-none');
+                btnAddImage.innerHTML = `<i class="fa-solid fa-lock text-slate-500"></i> Slot Foto Maksimal Tercapai`;
+            } else {
+                btnAddImage.classList.remove('opacity-40', 'pointer-events-none');
+                btnAddImage.innerHTML = `<i class="fa-solid fa-images text-sky-400"></i> Pilih & Tambah File Foto`;
+            }
+        }
+
         async function handleFormSubmission(event) {
             event.preventDefault();
             const submitBtn = document.getElementById('formSubmitBtn');
-
             const id = document.getElementById('entryUniqueId').value;
-            const payload = {
-                title: document.getElementById('inputTitle').value.trim(),
-                category: document.getElementById('inputCategory').value,
-                subcategory: document.getElementById('inputSubcategory').value.trim(),
-                image_url: document.getElementById('inputImageUrl').value.trim(),
-                address: document.getElementById('inputAddress').value.trim(),
-                maps_url: document.getElementById('inputMapsUrl').value.trim(),
-                description: document.getElementById('inputDescription').value.trim(),
-            };
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i>`;
+            submitBtn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin mr-1"></i> Memproses...`;
 
             try {
+                let finalImagesUrls = [null, null, null];
+
+                for (let i = 0; i < selectedImagesState.length; i++) {
+                    const item = selectedImagesState[i];
+
+                    if (item.type === 'url') {
+                        finalImagesUrls[i] = item.data;
+                    } else if (item.type === 'file') {
+                        const file = item.data;
+                        const ext = file.name.split('.').pop();
+                        const uniqueName = `wisata_${Date.now()}_${i}.${ext}`;
+
+                        const { error: uploadError } = await supabaseClient
+                            .storage
+                            .from('foto-destinasi')
+                            .upload(uniqueName, file, { cacheControl: '3600', upsert: false });
+
+                        if (uploadError) throw uploadError;
+
+                        const { data: { publicUrl } } = supabaseClient
+                            .storage
+                            .from('foto-destinasi')
+                            .getPublicUrl(uniqueName);
+
+                        finalImagesUrls[i] = publicUrl;
+                    }
+                }
+
+                const payload = {
+                    title: document.getElementById('inputTitle').value.trim(),
+                    category: document.getElementById('inputCategory').value,
+                    subcategory: document.getElementById('inputSubcategory').value.trim(),
+                    address: document.getElementById('inputAddress').value.trim(),
+                    maps_url: document.getElementById('inputMapsUrl').value.trim(),
+                    description: document.getElementById('inputDescription').value.trim(),
+                    gambar_1: finalImagesUrls[0],
+                    gambar_2: finalImagesUrls[1],
+                    gambar_3: finalImagesUrls[2]
+                };
+
                 if (id) {
                     const { error } = await supabaseClient.from('places').update(payload).eq('id', id);
                     if (error) throw error;
@@ -361,19 +437,27 @@
             document.getElementById('inputTitle').value = target.title || '';
             document.getElementById('inputCategory').value = target.category || 'wisata';
             document.getElementById('inputSubcategory').value = target.subcategory || '';
-            document.getElementById('inputImageUrl').value = target.image_url || '';
             document.getElementById('inputAddress').value = target.address || '';
             document.getElementById('inputMapsUrl').value = target.maps_url || '';
             document.getElementById('inputDescription').value = target.description || '';
 
+            selectedImagesState = [];
+            if (target.gambar_1) selectedImagesState.push({ type: 'url', data: target.gambar_1 });
+            if (target.gambar_2) selectedImagesState.push({ type: 'url', data: target.gambar_2 });
+            if (target.gambar_3) selectedImagesState.push({ type: 'url', data: target.gambar_3 });
+
+            renderStatePreviews();
+
             document.getElementById('formActionTitle').innerHTML = `<i class="fa-solid fa-pen-to-square text-amber-400"></i> Edit Record #${target.id}`;
             document.getElementById('formCancelBtn').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' }); // Naik ke atas otomatis di layar HP
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function resetFormState() {
             document.getElementById('crudForm').reset();
             document.getElementById('entryUniqueId').value = '';
+            selectedImagesState = [];
+            renderStatePreviews();
             document.getElementById('formActionTitle').innerHTML = `<i class="fa-solid fa-folder-plus text-sky-400"></i> Tambah Destinasi Baru`;
             document.getElementById('formCancelBtn').classList.add('hidden');
         }
