@@ -10,6 +10,8 @@
     <meta name="keywords" content="wisata tuban, kuliner tuban, otw tuban, bumi wali, rajungan tuban, toak, legen tuban, pantai tuban, goa tuban, air terjun tuban">
     <meta name="robots" content="index, follow">
     <meta name="author" content="OTW TUBAN">
+
+    <!--- Google Site Verification -->
     <meta name="google-site-verification" content="3mhugCFN4fjeg38sOJH8B-I3J0lgCca7Klu7eef9L_4" />
     
     <!-- Open Graph / Facebook -->
@@ -64,12 +66,12 @@
 </head>
 <body class="bg-[#0b1222] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-slate-950">
 
-    <!-- FIXED NAVBAR (Solid & High Visibility) -->
+    <!-- FIXED NAVBAR -->
     <nav class="bg-slate-950/95 border-b border-slate-800/80 sticky top-0 z-40 backdrop-blur-md" role="navigation" aria-label="Navigasi Utama">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2.5">
                 <img src="img/ikon.png" alt="Logo Resmi OTW TUBAN" class="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_2px_8px_rgba(56,189,248,0.2)]" loading="eager">
-                <span class="text-lg font-black text-blue tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-yellow-500">OTW TUBAN</span>
+                <span class="text-lg font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-yellow-500">OTW TUBAN</span>
             </div>
 
             <div class="flex items-center gap-4">
@@ -135,7 +137,7 @@
     </section>
 
     <!-- CARDS DISPLAY GRID CONTAINER -->
-    <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 flex-grow">
+    <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6">
         <div id="statusView" class="hidden text-center py-24 text-slate-500">
             <div class="flex flex-col items-center justify-center gap-3">
                 <i class="fa-solid fa-circle-notch animate-spin text-sky-400 text-4xl"></i>
@@ -148,12 +150,53 @@
         </div>
     </main>
 
-    <!-- MODAL POPUP WINDOW DETAIL (UPGRADED WITH CAROUSEL SLIDER) -->
+    <!-- CONTRIBUTOR CALL TO ACTION (CTA) SECTION -->
+    <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-10 pb-6">
+        <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 border border-slate-800/80 p-8 sm:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
+            <div class="absolute top-0 right-0 w-72 h-72 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="space-y-3 max-w-2xl text-center md:text-left relative z-10">
+                <span class="inline-flex items-center gap-1.5 bg-sky-500/10 text-sky-400 text-[10px] font-extrabold uppercase px-3 py-1 rounded-md border border-sky-500/20 shadow-sm">
+                    <i class="fa-solid fa-users text-amber-400"></i> Menjadi Kontributor
+                </span>
+                <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight leading-snug">
+                    Punya Ide Rekomendasi Wisata atau Kuliner Khas Tuban?
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
+                    Bantu kami memperluas peta penjelajahan OTW TUBAN! Jika Anda tahu hidden gem wisata alam baru, situs sejarah Bumi Wali, atau warung kuliner tradisional legendaris, bagikan informasinya bersama kami.
+                </p>
+            </div>
+
+            <div class="shrink-0 w-full md:w-auto relative z-10 text-center">
+                <a href="mailto:ibad.qr@gmail.com?subject=Rekomendasi%20Lokasi%20Baru%20-%20OTW%20TUBAN" class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white font-extrabold text-xs px-7 py-4 rounded-xl transition transform hover:-translate-y-0.5 shadow-lg shadow-sky-500/10 cursor-pointer group">
+                    <i class="fa-solid fa-paper-plane group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition duration-150"></i> Kirim Ide Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREMIUM AUDIO BACKGROUND CONTROLLER -->
+    <div class="fixed bottom-5 left-5 z-40 bg-slate-950/80 border border-slate-800 backdrop-blur-md px-3.5 py-2.5 rounded-xl shadow-2xl flex items-center gap-3">
+        <audio id="bgMusicPlayer" loop>
+            <!-- Anda bisa mengganti URL src di bawah ini dengan link file .mp3 musik instrumen pilihan Anda -->
+            <source src="img/DennyCaknan-NegoroAngin.mp3" type="audio/mpeg">
+        </audio>
+        <button onclick="toggleBackgroundMusic()" id="btnMusicControl" class="h-8 w-8 bg-sky-500 hover:bg-sky-600 text-slate-950 rounded-lg flex items-center justify-center text-xs font-bold transition cursor-pointer">
+            <i class="fa-solid fa-play"></i>
+        </button>
+        <div class="text-[10px] font-bold tracking-tight">
+            <span class="text-slate-400 block uppercase tracking-widest text-[8px]">Enjoy Music</span>
+            <span id="musicStatusText" class="text-slate-500">Klik Play / Ketuk Layar</span>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP WINDOW DETAIL -->
     <div id="detailModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col transform scale-95 transition-transform duration-300">
             
             <!-- Modal Banner Image Frame: MULTI-IMAGE SLIDER -->
-            <div class="relative aspect-video w-full bg-slate-950 shrink-0 border-b border-slate-800/80 group/slider overflow-hidden">
+            <div id="modalSliderContainer" class="relative aspect-video w-full bg-slate-950 shrink-0 border-b border-slate-800/80 group/slider overflow-hidden">
                 
                 <!-- Track Container Gambar -->
                 <div id="modalSliderTrack" class="w-full h-full flex transition-transform duration-500 ease-out">
@@ -218,7 +261,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-900 mt-16 py-8 text-center text-xs text-slate-500 font-semibold" role="contentinfo">
+    <footer class="bg-slate-950 border-t border-slate-900 py-8 text-center text-xs text-slate-500 font-semibold" role="contentinfo">
         <p>© 2026 OTW TUBAN. Portal Informasi Destinasi Wisata & Kuliner Khas Tuban.</p>
     </footer>
 
@@ -233,9 +276,9 @@
         let localDataCache = [];
         let activeCategoryFilter = 'semua';
         
-        // State Management Global untuk Komponen Slider Modal
         let currentSlideIndex = 0;
         let activeImagesList = [];
+        let sliderTimerInterval = null;
 
         function resolveImageUrl(urlInput) {
             if (!urlInput) return 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=60';
@@ -243,7 +286,6 @@
             return `${VERCEL_ASSET_BASE_URL.replace(/\/$/, '')}/${urlInput.replace(/^\//, '')}`;
         }
 
-        // PULL DATA REAL-TIME
         async function initPublicPlatform() {
             const grid = document.getElementById('cardsGrid');
             const status = document.getElementById('statusView');
@@ -269,7 +311,6 @@
             }
         }
 
-        // SET CATEGORY TAB
         function setCategoryFilter(category) {
             activeCategoryFilter = category;
             
@@ -287,7 +328,6 @@
             renderUiGridElements();
         }
 
-        // GRID CARD RENDER ENGINE
         function renderUiGridElements() {
             const grid = document.getElementById('cardsGrid');
             const searchStr = document.getElementById('searchInput').value.toLowerCase().trim();
@@ -323,7 +363,6 @@
                 const badgeStyle = isWisata ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20' : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
                 const iconBadge = isWisata ? '<i class="fa-solid fa-umbrella-beach mr-1"></i>' : '<i class="fa-solid fa-bowl-food mr-1"></i>';
                 
-                // Gunakan gambar_1 sebagai representasi utama cover kartu depan
                 const finalImg = resolveImageUrl(item.gambar_1);
                 const base64Data = btoa(unescape(encodeURIComponent(JSON.stringify(item))));
 
@@ -353,22 +392,19 @@
             });
         }
 
-        // MODAL CAROUSEL ENGINE SYSTEM
+        // ====== MODAL CAROUSEL SLIDER ENGINE (AUTOMATED & STOPPABLE) ======
         function openDetailModal(payloadBase64) {
             const item = JSON.parse(decodeURIComponent(escape(atob(payloadBase64))));
 
-            // Susun dan bersihkan state array list multi-gambar
             activeImagesList = [];
             if (item.gambar_1) activeImagesList.push(item.gambar_1);
             if (item.gambar_2) activeImagesList.push(item.gambar_2);
             if (item.gambar_3) activeImagesList.push(item.gambar_3);
 
-            // Fallback apabila array kosong murni
             if (activeImagesList.length === 0) {
                 activeImagesList.push('');
             }
 
-            // Bangun elemen track slide img secara berkala
             const track = document.getElementById('modalSliderTrack');
             track.innerHTML = '';
             activeImagesList.forEach((imgUrl, idx) => {
@@ -378,9 +414,9 @@
                 `;
             });
 
-            // Reset index dan mutasikan view posisi
             currentSlideIndex = 0;
             updateSliderViewPosition();
+            startAutomatedSliderTimer(); // Jalankan slideshow otomatis
 
             document.getElementById('modalTitle').innerText = item.title || 'Tanpa Nama';
             document.getElementById('modalSubcategory').innerText = item.subcategory || 'Umum';
@@ -423,9 +459,8 @@
 
         function updateSliderViewPosition() {
             const track = document.getElementById('modalSliderTrack');
-            track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            if (track) track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
 
-            // Atur visibilitas tombol navigasi panah
             const prevBtn = document.getElementById('sliderBtnPrev');
             const nextBtn = document.getElementById('sliderBtnNext');
             if (activeImagesList.length <= 1) {
@@ -436,7 +471,6 @@
                 nextBtn.classList.remove('hidden');
             }
 
-            // Bangun ulang dots indikator bulat bawah
             const dotsContainer = document.getElementById('sliderDotsContainer');
             dotsContainer.innerHTML = '';
             if (activeImagesList.length > 1) {
@@ -447,7 +481,29 @@
             }
         }
 
+        function startAutomatedSliderTimer() {
+            stopAutomatedSliderTimer();
+            if (activeImagesList.length > 1) {
+                sliderTimerInterval = setInterval(() => {
+                    moveSlider(1);
+                }, 3000); // Gerak otomatis setiap 3 detik
+            }
+        }
+
+        function stopAutomatedSliderTimer() {
+            if (sliderTimerInterval) {
+                clearInterval(sliderTimerInterval);
+                sliderTimerInterval = null;
+            }
+        }
+
+        // Listener untuk Menghentikan Gerakan jika Di-hover kursor mouse oleh pengunjung
+        const sliderContainer = document.getElementById('modalSliderContainer');
+        sliderContainer.addEventListener('mouseenter', stopAutomatedSliderTimer);
+        sliderContainer.addEventListener('mouseleave', startAutomatedSliderTimer);
+
         function closeDetailModal() {
+            stopAutomatedSliderTimer(); // Hentikan slideshow saat modal ditutup
             const modal = document.getElementById('detailModal');
             modal.classList.add('opacity-0');
             modal.querySelector('.transform').classList.add('scale-95');
@@ -460,6 +516,40 @@
 
         document.getElementById('detailModal').addEventListener('click', function(e) {
             if (e.target === this) closeDetailModal();
+        });
+
+
+        // ====== AUDIO MANAGEMENT SYSTEM (BACKGROUND MUSIC) ======
+        const audioPlayer = document.getElementById('bgMusicPlayer');
+        const btnMusic = document.getElementById('btnMusicControl');
+        const txtMusic = document.getElementById('musicStatusText');
+
+        function toggleBackgroundMusic() {
+            if (audioPlayer.paused) {
+                audioPlayer.play().then(() => {
+                    btnMusic.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+                    btnMusic.classList.remove('bg-sky-500');
+                    btnMusic.classList.add('bg-amber-500');
+                    txtMusic.innerText = "Memutar Musik Santai...";
+                    txtMusic.className = "text-sky-400 animate-pulse";
+                }).catch(err => console.log("Izin audio diblokir browser:", err));
+            } else {
+                audioPlayer.pause();
+                btnMusic.innerHTML = `<i class="fa-solid fa-play"></i>`;
+                btnMusic.classList.remove('bg-amber-500');
+                btnMusic.classList.add('bg-sky-500');
+                txtMusic.innerText = "Musik Dijeda";
+                txtMusic.className = "text-slate-500";
+            }
+        }
+
+        // Memicu musik berputar otomatis begitu mendeteksi ketukan/klik pertama user di layar website
+        document.addEventListener('click', function pemicuAudioOtomatis() {
+            if (audioPlayer.paused && txtMusic.innerText === "Klik Play / Ketuk Layar") {
+                toggleBackgroundMusic();
+            }
+            // Hapus event listener setelah terpicu sekali agar tidak mengganggu klik selanjutnya
+            document.removeEventListener('click', pemicuAudioOtomatis);
         });
 
         window.onload = initPublicPlatform;
