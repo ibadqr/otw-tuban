@@ -1,4 +1,4 @@
-# 🧭 OTW TUBAN — Platform Informasi Destinasi Wisata & Kuliner Lokal
+# 🧭 OTW TUBAN — Platform Informasi Destinasi Wisata & Kuliner Khas Tuban
 
 ![Version](https://img.shields.io/badge/Version-4.1.0--Responsive-blue?style=for-the-badge)
 ![Engine](https://img.shields.io/badge/Engine-Tailwind__v4--Supabase-0ea5e9?style=for-the-badge&logo=tailwindcss)
@@ -15,6 +15,7 @@
 *   **Secure Administration Console:** Manajemen konten (CRUD) yang dilindungi oleh sistem keamanan *Session Route Guard* terpusat melalui Supabase Auth.
 *   **Holographic Error Hub:** Halaman galat (404) interaktif dengan visualisasi kompas berputar menggunakan akselerasi grafis perangkat (*hardware accelerated animation*).
 *   **Animated Wilderness Night Hero:** Bagian utama beranda yang ditenagai oleh animasi gradasi warna cairan dinamis murni berbasis CSS `@keyframes`.
+*   **Automatic Background Music:** Pemutar audio musik khusus halaman utama website bisa kontrol play/pause.
 
 ---
 
@@ -41,3 +42,8 @@ otw-tuban/
 └── admin/
     ├── index.html        # Portal Autentikasi Kontributor (Login Page)
     └── dashboard.html    # Panel Utama Manajemen Data (CMS Console)
+└── img/
+    ├── ikon.png          # Ikon Utama Website (Semua Halaman)
+    └── logo.png          # Logo Utama Website (Semua Halaman)
+    └── background.png    # Gambar Background Hero Section (Halaman Utama)
+    └── music.mp3         # Musik Otomatis Play/Pause (Halaman Utama)
